@@ -14,16 +14,13 @@ import lombok.Data;
 @Data
 @Table(name = "TB_PROPRIEDADE")
 public class PropriedadeModel {
-	
-	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID id;
+	private UUID propriedadeId;
 	@Column(nullable = false, unique = true, length = 10)
 	private String nome;
 	@Column(nullable = false, unique = true, length = 10)
 	private Double value;
-
 
 }
