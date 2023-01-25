@@ -21,8 +21,13 @@ public class EmpresaModel implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UID id;
+	private UID Empresaid;
 	@Column(nullable = false, unique = true, length = 10)
 	private String nome;
+	@Column(nullable = false, unique = true, length = 10)
+	private SociedadeModel sociedade;
+	@Column(nullable = false, unique = true, length = 10)
+	private Double comprometimento;
+	
 	
 }
