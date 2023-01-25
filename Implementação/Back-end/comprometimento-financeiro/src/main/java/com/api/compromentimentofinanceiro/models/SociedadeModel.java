@@ -1,7 +1,5 @@
 package com.api.compromentimentofinanceiro.models;
 
-import java.util.UUID;
-
 import org.hibernate.annotations.GenericGenerator;
 
 import jakarta.persistence.Column;
