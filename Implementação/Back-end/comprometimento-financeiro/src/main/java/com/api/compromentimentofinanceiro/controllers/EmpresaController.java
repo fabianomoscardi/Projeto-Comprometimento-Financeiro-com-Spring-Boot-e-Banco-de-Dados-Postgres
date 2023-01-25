@@ -45,10 +45,10 @@ public class EmpresaController {
 	}
 	
 	@GetMapping("/consultar-comprometimento/{empresaId}")
-	public Optional<EmpresaModel> consultarComprometimentoEmpresa(@PathVariable UID empresaId) {
-		Double comprometimento = 0.0;
-		empresaService.consultarEmpresa(empresaId);
-		return null;
+	public ResponseEntity<String> consultarComprometimentoEmpresa(@PathVariable UID empresaId) {
+		EmpresaModel empresaModel = new EmpresaModel();
+		empresaService.consultarComprometimentoEmpresa(empresaId);
+		return new ResponseEntity<>(empresaModel.toString(), HttpStatus.CREATED);
 	}
 	
 	
