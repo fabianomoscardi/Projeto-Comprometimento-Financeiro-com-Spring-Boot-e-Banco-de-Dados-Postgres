@@ -1,13 +1,13 @@
-package com.ms.compromentimentofinanceiro;
+package com.api.compromentimentofinanceiro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MsComprometimentoFinanceiroApplication {
+public class ComprometimentoFinanceiroApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MsComprometimentoFinanceiroApplication.class, args);
+		SpringApplication.run(ComprometimentoFinanceiroApplication.class, args);
 	}
 
 }

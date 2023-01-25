@@ -1,10 +1,10 @@
-package com.ms.compromentimentofinanceiro;
+package com.api.compromentimentofinanceiro;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MsComprometimentoFinanceiroApplicationTests {
+class ComprometimentoFinanceiroApplicationTests {
 
 	@Test
 	void contextLoads() {
