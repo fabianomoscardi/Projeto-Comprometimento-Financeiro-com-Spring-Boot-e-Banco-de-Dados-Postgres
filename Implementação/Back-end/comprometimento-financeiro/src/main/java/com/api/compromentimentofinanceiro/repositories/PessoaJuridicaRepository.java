@@ -10,4 +10,6 @@ import com.api.compromentimentofinanceiro.models.PessoaJuridicaModel;
 @Repository
 public interface PessoaJuridicaRepository extends JpaRepository<PessoaJuridicaModel, UUID> {
 
+	void deleteByCnpj(Integer cnpj);
+
 }
