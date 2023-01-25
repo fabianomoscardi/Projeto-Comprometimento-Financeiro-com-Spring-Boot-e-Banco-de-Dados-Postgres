@@ -10,4 +10,5 @@ import com.api.compromentimentofinanceiro.models.PessoaFisicaModel;
 @Repository
 public interface PessoaFisicaRepository extends JpaRepository<PessoaFisicaModel, UUID>{
 
+	void deleteByCpf(Integer cpf);
 }
