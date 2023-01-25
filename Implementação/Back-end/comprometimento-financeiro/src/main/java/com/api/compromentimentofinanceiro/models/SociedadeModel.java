@@ -19,7 +19,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Table(name = "TB_SOCIEDADE")
 public class SociedadeModel {
-    @Id
+    
+	@Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
 	private String sociedadeId;
