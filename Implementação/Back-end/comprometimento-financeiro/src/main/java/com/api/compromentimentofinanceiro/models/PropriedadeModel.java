@@ -1,12 +1,9 @@
 package com.api.compromentimentofinanceiro.models;
 
-import java.util.UUID;
-
-import org.hibernate.annotations.GenericGenerator;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -22,14 +19,18 @@ import lombok.Setter;
 @Table(name = "TB_PROPRIEDADE")
 public class PropriedadeModel {
 
-	
 	@Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-	private UUID propriedadeId;
-	@Column(nullable = false, unique = true, length = 10)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(columnDefinition = "serial")
+	private Long propriedadeId;
+	@Column(nullable = false, unique = false, length = 1000)
 	private String nome;
-	@Column(nullable = false, unique = true, length = 10)
-	private Double value;
-
+	@Column(nullable = true, unique = false, length = 1000)
+	private Long pessoaFisicaId;
+	@Column(nullable = true, unique = false, length = 1000)
+	private Long pessoaJuridicaId;
+	@Column(nullable = false, unique = false, length = 1000)
+	private Long empresaId;
+	@Column(nullable = false, unique = false, length = 1000)
+	private Double valor;
 }

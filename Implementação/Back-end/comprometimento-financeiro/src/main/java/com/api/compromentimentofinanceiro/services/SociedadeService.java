@@ -1,7 +1,6 @@
 package com.api.compromentimentofinanceiro.services;
 
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,11 +18,11 @@ public class SociedadeService {
 		SociedadeRepository.save(sociedadeModel);
 	}
 
-	public Optional<SociedadeModel> consultarSociedade(UUID sociedadeId) {
+	public Optional<SociedadeModel> consultarSociedade(Long sociedadeId) {
 		return SociedadeRepository.findById(sociedadeId);
 	}
 
-	public void deletarSociedade(UUID sociedadeId) {
+	public void deletarSociedade(Long sociedadeId) {
 		SociedadeRepository.deleteById(sociedadeId);
 	}
 

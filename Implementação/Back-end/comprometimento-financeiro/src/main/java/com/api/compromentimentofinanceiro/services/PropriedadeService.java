@@ -1,7 +1,6 @@
 package com.api.compromentimentofinanceiro.services;
 
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,11 +18,11 @@ public class PropriedadeService {
 		propriedadeRepository.save(propriedadeModel);
 	}
 
-	public Optional<PropriedadeModel> consultarPropriedade(UUID propriedadeId) {
+	public Optional<PropriedadeModel> consultarPropriedade(Long propriedadeId) {
 		return propriedadeRepository.findById(propriedadeId);
 	}
 
-	public void deletarPropriedade(UUID propriedadeId) {
+	public void deletarPropriedade(Long propriedadeId) {
 		propriedadeRepository.deleteById(propriedadeId);
 		;
 	}

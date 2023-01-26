@@ -1,10 +1,9 @@
 package com.api.compromentimentofinanceiro.models;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -19,11 +18,15 @@ import lombok.Setter;
 @AllArgsConstructor
 @Table(name = "TB_SOCIEDADE")
 public class SociedadeModel {
-    
+
 	@Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-	private String sociedadeId;
-	@Column(nullable = false, unique = true, length = 10)
-	private int socio;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(columnDefinition = "serial")
+	private Long sociedadeId;
+	@Column(nullable = false, unique = false, length = 1000)
+	private Long empresaId;
+	@Column(nullable = true, unique = false, length = 1000)
+	private Long pessoaFisicaId;
+	@Column(nullable = true, unique = false, length = 1000)
+	private Long pessoaJuridicaId;
 }
