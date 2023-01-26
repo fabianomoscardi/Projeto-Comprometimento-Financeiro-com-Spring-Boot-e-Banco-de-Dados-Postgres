@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "ffc7b823-22e7-499a-adf1-1a14f87076f0",
+		"name": "Comprometimento Financeiro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14900626"
+	},
+	"item": [
+		{
+			"name": "Empresa",
+			"item": [
+				{
+					"name": "cadastrarEmpresa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nome\":\"Sales Infinity\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empresa/cadastrar-empresa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empresa",
+								"cadastrar-empresa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "consultarComprometimento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/empresa/consultar-comprometimento/06e0f1c7-387e-482f-a05c-317fd0d54828",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empresa",
+								"consultar-comprometimento",
+								"06e0f1c7-387e-482f-a05c-317fd0d54828"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "consultarEmpresa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/empresa/consultar-empresa/06e0f1c7-387e-482f-a05c-317fd0d54828",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empresa",
+								"consultar-empresa",
+								"06e0f1c7-387e-482f-a05c-317fd0d54828"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletarEmpresa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/empresa/deletar-empresa/06e0f1c7-387e-482f-a05c-317fd0d54828",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empresa",
+								"deletar-empresa",
+								"06e0f1c7-387e-482f-a05c-317fd0d54828"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pessoa Fisica",
+			"item": [
+				{
+					"name": "cadastrarPessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Fabiano Muscardi\",\r\n    \"cpf\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa-fisica/cadastrar-pessoa-fisica",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa-fisica",
+								"cadastrar-pessoa-fisica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "consultarPessoa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa-fisica/consultar-pessoa-fisica/61ce7a74-aa17-4805-834e-dd4f15f45658",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa-fisica",
+								"consultar-pessoa-fisica",
+								"61ce7a74-aa17-4805-834e-dd4f15f45658"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletarPessoa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa-fisica/deletar-pessoa-fisica/61ce7a74-aa17-4805-834e-dd4f15f45658",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa-fisica",
+								"deletar-pessoa-fisica",
+								"61ce7a74-aa17-4805-834e-dd4f15f45658"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pessoa Juridica",
+			"item": [
+				{
+					"name": "cadastrarPessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Fabiano Muscardi\",\r\n    \"cnpj\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa-juridica/cadastrar-pessoa-juridica",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa-juridica",
+								"cadastrar-pessoa-juridica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "consultarPessoa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa-juridica/consultar-pessoa-juridica/d8f62277-2a8c-4733-afa0-84c1ded534ea",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa-juridica",
+								"consultar-pessoa-juridica",
+								"d8f62277-2a8c-4733-afa0-84c1ded534ea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletarPessoa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa-juridica/deletar-pessoa-juridica/d8f62277-2a8c-4733-afa0-84c1ded534ea",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa-juridica",
+								"deletar-pessoa-juridica",
+								"d8f62277-2a8c-4733-afa0-84c1ded534ea"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Propiedade",
+			"item": [
+				{
+					"name": "cadastrarPropiedade",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Casa\",\r\n    \"pessoaFisicaId\":\"\",\r\n    \"pessoaJuridicaId\":\"1\",\r\n    \"empresaId\":\"1\",\r\n    \"valor\":120.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/propriedade/cadastrar-propiedade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"propriedade",
+								"cadastrar-propiedade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "consultarPropiedade",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/propriedade/consultar-propriedade/cc99f1b0-15a9-42d7-8a67-930b58078036",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"propriedade",
+								"consultar-propriedade",
+								"cc99f1b0-15a9-42d7-8a67-930b58078036"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletarPropiedade",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/propriedade/deletar-propriedade/cc99f1b0-15a9-42d7-8a67-930b58078036",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"propriedade",
+								"deletar-propriedade",
+								"cc99f1b0-15a9-42d7-8a67-930b58078036"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sociedade",
+			"item": [
+				{
+					"name": "cadastrarSociedade",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"empresaId\":\"98db074e-85dc-4104-9bc3-5eed27d1efd9\",\r\n    \"pessoaFisicaId\":\"\",\r\n    \"pessoaJurdidicaId\":\"7858a97c-0ac0-4d9f-aa0f-1d7a2e0c5d4e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sociedade/cadastrar-sociedade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sociedade",
+								"cadastrar-sociedade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "consultarPropiedade",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/propriedade/consultar-propriedade/cc99f1b0-15a9-42d7-8a67-930b58078036",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"propriedade",
+								"consultar-propriedade",
+								"cc99f1b0-15a9-42d7-8a67-930b58078036"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletarPropiedade",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/propriedade/deletar-propriedade/cc99f1b0-15a9-42d7-8a67-930b58078036",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"propriedade",
+								"deletar-propriedade",
+								"cc99f1b0-15a9-42d7-8a67-930b58078036"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
