@@ -29,13 +29,5 @@ public class EmpresaModel implements Serializable {
 	private Long empresaId;
 	@Column(nullable = false, unique = true, length = 1000)
 	private String nome;
-	@Column(nullable = true, unique = false, length = 1000)
-	private Double comprometimento;
-
-	@Override
-	public String toString() {
-		return "O valor do comprometimento financeiro da empresa " + getNome() + " é de R$" + getComprometimento()
-				+ ".";
-	}
 
 }
