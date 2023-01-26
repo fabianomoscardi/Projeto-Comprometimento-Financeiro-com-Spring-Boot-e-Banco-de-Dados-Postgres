@@ -1,6 +1,5 @@
 package com.api.compromentimentofinanceiro.controllers;
 
-import java.rmi.server.UID;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
@@ -24,7 +23,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/comprometimento-financeiro")
+@RequestMapping("/empresa")
 public class EmpresaController {
 
 	@Autowired
@@ -38,25 +37,27 @@ public class EmpresaController {
 		return new ResponseEntity<>(empresaModel, HttpStatus.CREATED);
 	}
 
-
 	@GetMapping("/consultar-empresa/{empresaId}")
-	public Optional<EmpresaModel> consultarEmpresa(@PathVariable(value="empresaId") UID empresaId) {
-		return empresaService.consultarEmpresa(empresaId);
+	public ResponseEntity<Object> consultarEmpresa(@PathVariable(value = "empresaId") Long empresaId) {
+		Optional<EmpresaModel> empresaModelOptional = empresaService.consultarEmpresa(empresaId);
+		if (!empresaModelOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Empresa não encontrada.");
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(empresaModelOptional.get());
 	}
-	
+
 	@GetMapping("/consultar-comprometimento/{empresaId}")
-	public ResponseEntity<String> consultarComprometimentoEmpresa(@PathVariable(value="empresaId") UID empresaId) {
-		EmpresaModel empresaModel = new EmpresaModel();
-		empresaService.consultarComprometimentoEmpresa(empresaId);
-		return new ResponseEntity<>(empresaModel.toString(), HttpStatus.CREATED);
+	public ResponseEntity<String> consultarComprometimentoEmpresa(@PathVariable(value = "empresaId") Long empresaId) {
+		Optional<EmpresaModel> empresaModelOptional = empresaService.consultarEmpresa(empresaId);
+		Double comprometimento = empresaService.consultarComprometimentoEmpresa(empresaId);
+		return new ResponseEntity<>("O comprometimento financeiro atual da empresa " + empresaModelOptional.get().getNome()
+				+ " é de R$" + comprometimento + ".", HttpStatus.CREATED);
 	}
-	
-	
+
 	@DeleteMapping("/deletar-empresa/{empresaId}")
-	public ResponseEntity<UID> cadastrarEmpresa(@PathVariable(value="empresaId") UID empresaId) {
+	public ResponseEntity<Long> deletarEmpresa(@PathVariable(value = "empresaId") Long empresaId) {
 		empresaService.deletarEmpresa(empresaId);
 		return new ResponseEntity<>(empresaId, HttpStatus.OK);
 	}
-	
 
 }
