@@ -14,4 +14,5 @@ public class SociedadeDto {
 	private Long empresaId;
 	private Long pessoaFisicaId;
 	private Long pessoaJuridicaId;
+	private Long empresaSociaId;
 }

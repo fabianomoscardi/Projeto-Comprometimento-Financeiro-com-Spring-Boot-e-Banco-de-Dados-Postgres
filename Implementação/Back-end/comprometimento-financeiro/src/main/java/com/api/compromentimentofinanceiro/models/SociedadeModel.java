@@ -29,4 +29,6 @@ public class SociedadeModel {
 	private Long pessoaFisicaId;
 	@Column(nullable = true, unique = false, length = 1000)
 	private Long pessoaJuridicaId;
+	@Column(nullable = true, unique = false, length = 1000)
+	private Long empresaSociaId;
 }
