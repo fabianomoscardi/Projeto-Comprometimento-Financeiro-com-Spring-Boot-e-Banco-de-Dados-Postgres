@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/comprometimento-financeiro-db?currentSchema=debug
+    url: jdbc:postgresql://localhost:5432/comprometimento-financeiro-db?currentSchema=public
     password: teste
     username: postgres
     driver-class-name: org.postgresql.Driver
