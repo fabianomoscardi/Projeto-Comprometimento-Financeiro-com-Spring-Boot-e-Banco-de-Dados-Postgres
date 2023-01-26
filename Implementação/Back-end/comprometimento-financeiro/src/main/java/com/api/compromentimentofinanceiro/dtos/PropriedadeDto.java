@@ -11,11 +11,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PropriedadeDto {
-	
+
 	@NotBlank
 	private String nome;
+	private Long pessoaFisicaId;
+	private Long pessoaJuridicaId;
+	private Long empresaId;
 	@NotBlank
 	private Double valor;
-	
 
 }
