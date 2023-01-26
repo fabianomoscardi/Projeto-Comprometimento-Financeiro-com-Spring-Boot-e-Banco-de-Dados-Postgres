@@ -1,6 +1,7 @@
 package com.api.compromentimentofinanceiro.models;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -30,8 +31,8 @@ public class EmpresaModel implements Serializable{
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
 	private String Empresaid;
-	@Column(nullable = false, unique = true, length = 10)
+	@Column(nullable = false, unique = true, length = 1000)
 	private String nome;
-	@Column(nullable = false, unique = true, length = 10)
+	@Column(nullable = true, unique = true, length = 1000)
 	private Double comprometimento;	
 }
