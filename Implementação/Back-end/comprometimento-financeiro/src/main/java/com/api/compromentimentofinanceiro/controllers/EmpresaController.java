@@ -40,12 +40,12 @@ public class EmpresaController {
 
 
 	@GetMapping("/consultar-empresa/{empresaId}")
-	public Optional<EmpresaModel> consultarEmpresa(@PathVariable UID empresaId) {
+	public Optional<EmpresaModel> consultarEmpresa(@PathVariable(value="empresaId") UID empresaId) {
 		return empresaService.consultarEmpresa(empresaId);
 	}
 	
 	@GetMapping("/consultar-comprometimento/{empresaId}")
-	public ResponseEntity<String> consultarComprometimentoEmpresa(@PathVariable UID empresaId) {
+	public ResponseEntity<String> consultarComprometimentoEmpresa(@PathVariable(value="empresaId") UID empresaId) {
 		EmpresaModel empresaModel = new EmpresaModel();
 		empresaService.consultarComprometimentoEmpresa(empresaId);
 		return new ResponseEntity<>(empresaModel.toString(), HttpStatus.CREATED);
@@ -53,7 +53,7 @@ public class EmpresaController {
 	
 	
 	@DeleteMapping("/deletar-empresa/{empresaId}")
-	public ResponseEntity<UID> cadastrarEmpresa(@PathVariable UID empresaId) {
+	public ResponseEntity<UID> cadastrarEmpresa(@PathVariable(value="empresaId") UID empresaId) {
 		empresaService.deletarEmpresa(empresaId);
 		return new ResponseEntity<>(empresaId, HttpStatus.OK);
 	}
