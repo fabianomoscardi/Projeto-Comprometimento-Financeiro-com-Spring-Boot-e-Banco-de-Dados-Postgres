@@ -14,6 +14,8 @@ import com.api.compromentimentofinanceiro.dtos.SociedadeDto;
 import com.api.compromentimentofinanceiro.models.SociedadeModel;
 import com.api.compromentimentofinanceiro.services.SociedadeService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/sociedade")
@@ -23,7 +25,7 @@ public class SociedadeController {
 	SociedadeService sociedadeService;
 
 	@PostMapping("/cadastrar-sociedade")
-	public ResponseEntity<SociedadeModel> cadastrarSociedade(@RequestBody SociedadeDto sociedadeDto) {
+	public ResponseEntity<SociedadeModel> cadastrarSociedade(@RequestBody @Valid SociedadeDto sociedadeDto) {
 		SociedadeModel sociedadeModel = new SociedadeModel();
 		BeanUtils.copyProperties(sociedadeDto, sociedadeModel);
 		sociedadeService.cadastrarSociedade(sociedadeModel);

@@ -19,6 +19,8 @@ import com.api.compromentimentofinanceiro.dtos.PessoaJuridicaDto;
 import com.api.compromentimentofinanceiro.models.PessoaJuridicaModel;
 import com.api.compromentimentofinanceiro.services.PessoaJuridicaService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/pessoa-juridica")
@@ -29,7 +31,7 @@ public class PessoaJuridicaController {
 
 	@PostMapping("/cadastrar-pessoa-juridica")
 	public ResponseEntity<PessoaJuridicaModel> cadastrarPessoaJuridica(
-			@RequestBody PessoaJuridicaDto pessoaJuridicaDto) {
+			@RequestBody @Valid PessoaJuridicaDto pessoaJuridicaDto) {
 		PessoaJuridicaModel pessoaJuridicaModel = new PessoaJuridicaModel();
 		BeanUtils.copyProperties(pessoaJuridicaDto, pessoaJuridicaModel);
 		pessoaJuridicaService.cadastrarPessoaJuridica(pessoaJuridicaModel);

@@ -19,6 +19,8 @@ import com.api.compromentimentofinanceiro.dtos.PropriedadeDto;
 import com.api.compromentimentofinanceiro.models.PropriedadeModel;
 import com.api.compromentimentofinanceiro.services.PropriedadeService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/propriedade")
@@ -28,7 +30,7 @@ public class PropriedadeController {
 	PropriedadeService propriedadeService;
 
 	@PostMapping("/cadastrar-propiedade")
-	public ResponseEntity<PropriedadeModel> cadastrarPropriedade(@RequestBody PropriedadeDto propriedadeDto) {
+	public ResponseEntity<PropriedadeModel> cadastrarPropriedade(@RequestBody @Valid PropriedadeDto propriedadeDto) {
 		PropriedadeModel propriedadeModel = new PropriedadeModel();
 		BeanUtils.copyProperties(propriedadeDto, propriedadeModel);
 		propriedadeService.cadastrarPropriedade(propriedadeModel);

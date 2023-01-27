@@ -16,6 +16,7 @@ public class PropriedadeDto {
 	private String nome;
 	private Long pessoaFisicaId;
 	private Long pessoaJuridicaId;
+	@NotBlank
 	private Long empresaId;
 	@NotBlank
 	private Double valor;

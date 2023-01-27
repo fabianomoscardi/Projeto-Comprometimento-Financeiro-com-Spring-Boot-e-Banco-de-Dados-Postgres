@@ -13,11 +13,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PessoaJuridicaDto {
-	
+
 	@NotBlank
 	private String nome;
 	@NotBlank
 	@CNPJ
-	private int cnpj;
+	private String cnpj;
 
 }

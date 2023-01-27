@@ -19,6 +19,8 @@ import com.api.compromentimentofinanceiro.dtos.PessoaFisicaDto;
 import com.api.compromentimentofinanceiro.models.PessoaFisicaModel;
 import com.api.compromentimentofinanceiro.services.PessoaFisicaService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/pessoa-fisica")
@@ -28,7 +30,8 @@ public class PessoaFisicaController {
 	PessoaFisicaService pessoaFisicaService;
 
 	@PostMapping("/cadastrar-pessoa-fisica")
-	public ResponseEntity<PessoaFisicaModel> cadastrarPessoaFisica(@RequestBody PessoaFisicaDto pessoaFisicaDto) {
+	public ResponseEntity<PessoaFisicaModel> cadastrarPessoaFisica(
+			@RequestBody @Valid PessoaFisicaDto pessoaFisicaDto) {
 		PessoaFisicaModel pessoaFisicaModel = new PessoaFisicaModel();
 		BeanUtils.copyProperties(pessoaFisicaDto, pessoaFisicaModel);
 		pessoaFisicaService.cadastrarPessoaFisica(pessoaFisicaModel);
