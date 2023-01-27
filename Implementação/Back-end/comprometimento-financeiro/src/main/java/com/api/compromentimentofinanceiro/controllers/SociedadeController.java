@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.compromentimentofinanceiro.dtos.SociedadeDto;
 import com.api.compromentimentofinanceiro.models.SociedadeModel;
+import com.api.compromentimentofinanceiro.services.PessoaFisicaService;
+import com.api.compromentimentofinanceiro.services.PessoaJuridicaService;
 import com.api.compromentimentofinanceiro.services.SociedadeService;
-
-import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -25,10 +25,18 @@ public class SociedadeController {
 	SociedadeService sociedadeService;
 
 	@PostMapping("/cadastrar-sociedade")
-	public ResponseEntity<SociedadeModel> cadastrarSociedade(@RequestBody @Valid SociedadeDto sociedadeDto) {
+	public ResponseEntity<SociedadeModel> cadastrarSociedade(@RequestBody SociedadeDto sociedadeDto) {
 		SociedadeModel sociedadeModel = new SociedadeModel();
 		BeanUtils.copyProperties(sociedadeDto, sociedadeModel);
 		sociedadeService.cadastrarSociedade(sociedadeModel);
+		if (sociedadeModel.getPessoaFisicaId() != null) {
+			PessoaFisicaService pessoaFisicaService = new PessoaFisicaService();
+			pessoaFisicaService.atualizarEmpresaId(sociedadeModel.getPessoaFisicaId(), sociedadeModel.getEmpresaId());
+		} else if (sociedadeModel.getPessoaJuridicaId() != null) {
+			PessoaJuridicaService pessoaJuridicaService = new PessoaJuridicaService();
+			pessoaJuridicaService.atualizarEmpresaId(sociedadeModel.getPessoaJuridicaId(),
+					sociedadeModel.getEmpresaId());
+		}
 		return new ResponseEntity<>(sociedadeModel, HttpStatus.CREATED);
 	}
 
