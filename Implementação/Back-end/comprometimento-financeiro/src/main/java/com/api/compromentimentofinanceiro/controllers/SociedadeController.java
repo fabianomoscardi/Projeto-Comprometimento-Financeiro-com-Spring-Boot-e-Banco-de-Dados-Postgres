@@ -29,14 +29,14 @@ public class SociedadeController {
 		SociedadeModel sociedadeModel = new SociedadeModel();
 		BeanUtils.copyProperties(sociedadeDto, sociedadeModel);
 		sociedadeService.cadastrarSociedade(sociedadeModel);
-		if (sociedadeModel.getPessoaFisicaId() != null) {
+/*		if (sociedadeModel.getPessoaFisicaId() != null) {
 			PessoaFisicaService pessoaFisicaService = new PessoaFisicaService();
 			pessoaFisicaService.atualizarEmpresaId(sociedadeModel.getPessoaFisicaId(), sociedadeModel.getEmpresaId());
 		} else if (sociedadeModel.getPessoaJuridicaId() != null) {
 			PessoaJuridicaService pessoaJuridicaService = new PessoaJuridicaService();
 			pessoaJuridicaService.atualizarEmpresaId(sociedadeModel.getPessoaJuridicaId(),
 					sociedadeModel.getEmpresaId());
-		}
+		} */
 		return new ResponseEntity<>(sociedadeModel, HttpStatus.CREATED);
 	}
 
