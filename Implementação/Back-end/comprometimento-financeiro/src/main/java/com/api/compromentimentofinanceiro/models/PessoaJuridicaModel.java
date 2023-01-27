@@ -26,7 +26,7 @@ public class PessoaJuridicaModel {
 	@Column(nullable = false, unique = true, length = 1000)
 	private String nome;
 	@Column(nullable = true, unique = true, length = 1000)
-	private int cnpj;
+	private String cnpj;
 	@Column(nullable = true, unique = false, length = 1000)
 	private String empresaId;
 

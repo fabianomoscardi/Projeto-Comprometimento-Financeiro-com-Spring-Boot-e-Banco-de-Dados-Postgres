@@ -26,7 +26,7 @@ public class PessoaFisicaModel {
 	@Column(nullable = false, unique = true, length = 1000)
 	private String nome;
 	@Column(nullable = true, unique = true, length = 1000)
-	private int cpf;
+	private String cpf;
 	@Column(nullable = true, unique = false, length = 1000)
 	private Long empresaId;
 
