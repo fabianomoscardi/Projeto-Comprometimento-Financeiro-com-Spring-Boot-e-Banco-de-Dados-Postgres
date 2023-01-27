@@ -48,8 +48,9 @@ public class EmpresaController {
 
 	@GetMapping("/consultar-comprometimento/{empresaId}")
 	public ResponseEntity<String> consultarComprometimentoEmpresa(@PathVariable(value = "empresaId") Long empresaId) {
+		Long empresaSociaId = empresaId;
 		Optional<EmpresaModel> empresaModelOptional = empresaService.consultarEmpresa(empresaId);
-		Double comprometimento = empresaService.consultarComprometimentoEmpresa(empresaId);
+		Double comprometimento = empresaService.consultarComprometimentoEmpresa(empresaId, empresaSociaId);
 		return new ResponseEntity<>("O comprometimento financeiro atual da empresa " + empresaModelOptional.get().getNome()
 				+ " é de R$" + comprometimento + ".", HttpStatus.CREATED);
 	}

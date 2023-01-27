@@ -24,8 +24,8 @@ public class EmpresaService {
 		return empresaRepository.findById(empresaId);
 	}
 
-	public Double consultarComprometimentoEmpresa(Long empresaId) {
-		return empresaRepository.consultarComprometimentoEmpresa(empresaId);
+	public Double consultarComprometimentoEmpresa(Long empresaId, Long empresaSociaId) {
+		return empresaRepository.consultarComprometimentoEmpresa(empresaId, empresaSociaId);
 	}
 
 	@Transactional
