@@ -10,9 +10,4 @@ import com.api.compromentimentofinanceiro.models.PessoaFisicaModel;
 @Repository
 public interface PessoaFisicaRepository extends JpaRepository<PessoaFisicaModel, Long> {
 
-	void deleteByCpf(Integer cpf);
-
-	@Modifying
-	@Query("UPDATE TB_PESSOA_FISICA SET EMPRESA_ID = ?2 WHERE PESSOA_FISICA_ID = ?1")
-	void atualizarEmpresaId(Long pessoaFisicaId, Long empresaId);
 }
