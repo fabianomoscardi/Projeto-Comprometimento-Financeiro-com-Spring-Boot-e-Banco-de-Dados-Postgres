@@ -16,6 +16,7 @@ public class EmpresaService {
 	@Autowired
 	EmpresaRepository empresaRepository;
 
+	@Transactional
 	public void cadastrarEmpresa(EmpresaModel empresaModel) {
 		empresaRepository.save(empresaModel);
 	}

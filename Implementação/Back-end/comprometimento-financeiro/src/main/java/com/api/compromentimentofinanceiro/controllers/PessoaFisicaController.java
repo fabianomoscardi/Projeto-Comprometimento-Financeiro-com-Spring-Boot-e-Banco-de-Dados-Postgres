@@ -29,6 +29,15 @@ public class PessoaFisicaController {
 	@Autowired
 	PessoaFisicaService pessoaFisicaService;
 
+	/**
+	 * Cadastra uma nova pessoa fisica de acordo com os dados informados através do
+	 * json postado atraves da url.
+	 * [http://localhost:8080/pessoa-fisica/cadastrar-pessoa-fisica]
+	 * 
+	 * @param pessoaFisicaDto Nome e cpf da pessoa a ser cadastrada.
+	 * @return Um objeto do tipo PessoaFisicaModel contendo as informações
+	 *         da pessoa cadastrada.
+	 */
 	@PostMapping("/cadastrar-pessoa-fisica")
 	public ResponseEntity<PessoaFisicaModel> cadastrarPessoaFisica(
 			@RequestBody @Valid PessoaFisicaDto pessoaFisicaDto) {
@@ -38,12 +47,28 @@ public class PessoaFisicaController {
 		return new ResponseEntity<>(pessoaFisicaModel, HttpStatus.CREATED);
 	}
 
+	/**
+	 * Consulta uma pessoa fisica cadastrada conforme o id informado na url de
+	 * consulta.
+	 * [http://localhost:8080/pessoa-fisica/consultar-pessoa-fisica/{pessoaFisicaId}].
+	 * 
+	 * @param pessoaFisicaId Id da pessoa fisica a ser consultada.
+	 * @return Um objeto do tipo PessoaFisicaModel contendo as informações
+	 *         da pessoa consultada.
+	 */
 	@GetMapping("/consultar-pessoa-fisica/{pessoaFisicaId}")
 	public Optional<PessoaFisicaModel> consultarPessoaFisica(
 			@PathVariable(value = "pessoaFisicaId") Long pessoaFisicaId) {
 		return pessoaFisicaService.consultarPessoaFisica(pessoaFisicaId);
 	}
 
+	/**
+	 * Deleta uma pessoa fisica cadastrada informada na url.
+	 * [http://localhost:8080/pessoa-fisica/deletar-pessoa-fisica/{pessoaFisicaId}]
+	 * 
+	 * @param pessoaFisicaId Id da pessoa fisica a ser deletada.
+	 * @return Um Objeto do tipo Long contendo o Id da pessoa deletada.
+	 */
 	@DeleteMapping("/deletar-pessoa-fisica/{pessoaFisicaId}")
 	public ResponseEntity<Long> deletarPessoaFisica(@PathVariable(value = "pessoaFisicaId") Long pessoaFisicaId) {
 		pessoaFisicaService.deletarPessoaFisica(pessoaFisicaId);

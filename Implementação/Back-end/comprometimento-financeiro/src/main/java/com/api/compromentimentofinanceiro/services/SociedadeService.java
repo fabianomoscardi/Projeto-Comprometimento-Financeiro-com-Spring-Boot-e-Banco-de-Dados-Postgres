@@ -8,12 +8,15 @@ import org.springframework.stereotype.Service;
 import com.api.compromentimentofinanceiro.models.SociedadeModel;
 import com.api.compromentimentofinanceiro.repositories.SociedadeRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class SociedadeService {
 
 	@Autowired
 	SociedadeRepository SociedadeRepository;
 
+	@Transactional
 	public void cadastrarSociedade(SociedadeModel sociedadeModel) {
 		SociedadeRepository.save(sociedadeModel);
 	}
@@ -22,6 +25,7 @@ public class SociedadeService {
 		return SociedadeRepository.findById(sociedadeId);
 	}
 
+	@Transactional
 	public void deletarSociedade(Long sociedadeId) {
 		SociedadeRepository.deleteById(sociedadeId);
 	}

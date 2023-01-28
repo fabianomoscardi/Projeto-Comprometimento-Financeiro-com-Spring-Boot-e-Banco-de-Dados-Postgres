@@ -27,6 +27,17 @@ public class PropriedadeController {
 	@Autowired
 	PropriedadeService propriedadeService;
 
+	/**
+	 * Cadastra uma nova propriedade de acordo com os dados informados através do
+	 * json postado atraves da url.
+	 * [http://localhost:8080/propriedade/cadastrar-propriedade]
+	 * 
+	 * @param propriedadeDto Nome da propriedade, Id da pessoa juridica ou fisica
+	 *                       responsável pela propriedade e Id referente a empresa
+	 *                       que essa pessoa pertence.
+	 * @return Um objeto do tipo PropriedadeModel contendo as informações da
+	 *         propriedade cadastrada.
+	 */
 	@PostMapping("/cadastrar-propiedade")
 	public ResponseEntity<PropriedadeModel> cadastrarPropriedade(@RequestBody PropriedadeDto propriedadeDto) {
 		PropriedadeModel propriedadeModel = new PropriedadeModel();
@@ -34,12 +45,28 @@ public class PropriedadeController {
 		propriedadeService.cadastrarPropriedade(propriedadeModel);
 		return new ResponseEntity<>(propriedadeModel, HttpStatus.CREATED);
 	}
-
+	
+	/**
+	 * Consulta uma propriedade cadastrada conforme o id informado na url de
+	 * consulta.
+	 * [http://localhost:8080/propriedade/consultar-propriedade/{propriedadeId}].
+	 * 
+	 * @param propriedadeId Id da propriedade a ser consultada.
+	 * @return Um objeto do tipo PropriedadeModel contendo as informações
+	 *         da propriedade consultada.
+	 */
 	@GetMapping("/consultar-propriedade/{propriedadeId}")
 	public Optional<PropriedadeModel> consultarPropriedade(@PathVariable(value = "propriedadeId") Long propriedadeId) {
 		return propriedadeService.consultarPropriedade(propriedadeId);
 	}
 
+	/**
+	 * Deleta uma pessoa juridica cadastrada informada na url.
+	 * [http://localhost:8080/propriedade/deletar-propriedade/{propriedadeId}]
+	 * 
+	 * @param propriedadeId Id da propriedade a ser deletada.
+	 * @return Um Objeto do tipo Long contendo o Id da propriedade deletada.
+	 */
 	@DeleteMapping("/deletar-propriedade/{propriedadeId}")
 	public ResponseEntity<Long> deletarPropriedade(@PathVariable(value = "propriedadeId") Long propriedadeId) {
 		propriedadeService.deletarPropriedade(propriedadeId);

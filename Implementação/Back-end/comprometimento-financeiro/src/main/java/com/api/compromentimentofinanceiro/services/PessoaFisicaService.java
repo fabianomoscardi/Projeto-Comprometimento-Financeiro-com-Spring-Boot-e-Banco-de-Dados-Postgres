@@ -8,12 +8,15 @@ import org.springframework.stereotype.Service;
 import com.api.compromentimentofinanceiro.models.PessoaFisicaModel;
 import com.api.compromentimentofinanceiro.repositories.PessoaFisicaRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class PessoaFisicaService {
 
 	@Autowired
 	PessoaFisicaRepository pessoaFisicaRepository;
 
+	@Transactional
 	public void cadastrarPessoaFisica(PessoaFisicaModel pessoaFisicaModel) {
 		pessoaFisicaRepository.save(pessoaFisicaModel);
 	}
@@ -22,9 +25,9 @@ public class PessoaFisicaService {
 		return pessoaFisicaRepository.findById(pessoaFisicaId);
 	}
 
+	@Transactional
 	public void deletarPessoaFisica(Long pessoaFisicaId) {
 		pessoaFisicaRepository.deleteById(pessoaFisicaId);
-		;
 	}
 
 }

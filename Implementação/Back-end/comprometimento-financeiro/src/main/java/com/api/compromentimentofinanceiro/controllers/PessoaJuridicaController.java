@@ -28,7 +28,16 @@ public class PessoaJuridicaController {
 
 	@Autowired
 	PessoaJuridicaService pessoaJuridicaService;
-
+	
+	/**
+	 * Cadastra uma nova pessoa juridica de acordo com os dados informados através do
+	 * json postado atraves da url.
+	 * [http://localhost:8080/pessoa-juridica/cadastrar-pessoa-juridica]
+	 * 
+	 * @param pessoaJuridicaDto Nome e cnpj da pessoa a ser cadastrada.
+	 * @return Um objeto do tipo PessoaJuridicaModel contendo as informações
+	 *         da pessoa cadastrada.
+	 */
 	@PostMapping("/cadastrar-pessoa-juridica")
 	public ResponseEntity<PessoaJuridicaModel> cadastrarPessoaJuridica(
 			@RequestBody @Valid PessoaJuridicaDto pessoaJuridicaDto) {
@@ -37,13 +46,29 @@ public class PessoaJuridicaController {
 		pessoaJuridicaService.cadastrarPessoaJuridica(pessoaJuridicaModel);
 		return new ResponseEntity<>(pessoaJuridicaModel, HttpStatus.CREATED);
 	}
-
+	
+	/**
+	 * Consulta uma pessoa juridica cadastrada conforme o id informado na url de
+	 * consulta.
+	 * [http://localhost:8080/pessoa-juridica/consultar-pessoa-juridica/{pessoaJuridicaId}].
+	 * 
+	 * @param pessoaJuridicaId Id da pessoa juridica a ser consultada.
+	 * @return Um objeto do tipo PessoaJuridicaModel contendo as informações
+	 *         da pessoa consultada.
+	 */
 	@GetMapping("/consultar-pessoa-juridica/{pessoaJuridicaId}")
 	public Optional<PessoaJuridicaModel> consultarPessoaJuridica(
 			@PathVariable(value = "pessoaJuridicaId") Long pessoaJuridicaId) {
 		return pessoaJuridicaService.consultarPessoaJuridica(pessoaJuridicaId);
 	}
-
+	
+	/**
+	 * Deleta uma pessoa juridica cadastrada informada na url.
+	 * [http://localhost:8080/pessoa-juridica/deletar-pessoa-juridica/{pessoaJuridicaId}]
+	 * 
+	 * @param pessoaJuridicaId Id da pessoa juridica a ser deletada.
+	 * @return Um Objeto do tipo Long contendo o Id da pessoa deletada.
+	 */
 	@DeleteMapping("/deletar-pessoa-juridica/{pessoaJuridicaId}")
 	public ResponseEntity<Long> deletarPessoaJuridica(@PathVariable(value = "pessoaJuridicaId") Long pessoaJuridicaId) {
 		pessoaJuridicaService.deletarPessoaJuridica(pessoaJuridicaId);
