@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"nome\":\"Fit Marketing\"\r\n}",
+							"raw": "{\r\n   \"nome\":\"Sales Infinity\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -86,7 +86,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/empresa/deletar-empresa/06e0f1c7-387e-482f-a05c-317fd0d54828",
+							"raw": "http://localhost:8080/empresa/deletar-empresa/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -95,7 +95,7 @@
 							"path": [
 								"empresa",
 								"deletar-empresa",
-								"06e0f1c7-387e-482f-a05c-317fd0d54828"
+								"1"
 							]
 						}
 					},
